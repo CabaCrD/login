@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!-- Author : CabaCrD -->
+<html>
+
+  <head>
+  
+    <meta charset="UTF-8" >  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <title>"Página en mantenimiento"</title>
+    
+  </head>
+  
+  <body class="bg-light">
+  
+<!-- ------------------------- CABECERA ----------------->              
+<header>
+
+  <div class="container">
+
+      <div class="d-flex justify-content-center bg-warning col-12 "> 
+
+        <div class=" col-md-12 col-xs-12 text-center text-dark mb-3 mt-3">
+
+          <h1 class="fw-bolder">Construcciones CabaCrD</h1>
+
+        </div>
+
+      </div>
+
+  </div>
+
+</header>   
+ <!----------------------------------------CONTENIDO PRINCIPAL -------------------> 
+
+    
+    <div class="container">
+
+      <div class="d-flex row col-12">
+      
+        <!-- AQUI VA EL CONTENIDO PRINCIPAL -->
+        
+        <div class="justify-content-center text-center col-md-12 mb-5 mt-5" >
+
+          <main> 
+            <img class="mt-2 mb-2" src="./img/Mantenimiento.png" alt="Imagen de engranajes"></img>
+            <h3>La página se encuentra ahora mismo en mantenimiento.</h3>
+            <h3>Estará operativa en la máxima brevedad posible</h3>
+
+          </main>
+
+        </div>
+      
+      </div>
+
+    </div>
+
+<!------------------- PIE DE PAGINA ---------------------------------->  
+    
+     <div class="container">
+
+      <div class="row d-flex align-items-center justify-content-center col-12" text-center>
+
+        <div class="p-3 mb-2 bg-dark text-white col-md-12">
+
+          <footer class="text-center"> 
+
+            <p> ©CabaCrD</p>
+
+            <p id="useragent"></p>
+
+          </footer>
+          
+        </div>
+
+      </div>
+
+    </div>
+        
+    <script type="text/javascript">
+        
+    let useragent = "<p>" + navigator.userAgent + "</p>";
+
+    document.getElementById("useragent").innerHTML ="<p> useragent: </p>" + useragent; 
+    
+    </script>
+   
+  </body>
+  
+</html>

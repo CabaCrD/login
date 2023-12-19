@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<!-- author: CabaCrD -->
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>login</title>
+</head>
+<body>
+<script type="text/javascript">
+
+/*******************DECLARANDO VARIABLES****************************/
+ 
+var fechaAlta = new Date();
+var fechaActual = parseInt(new Date().getFullYear());
+
+const vocales =['a', 'e', 'i', 'o', 'u'];
+const espacio = [' '];
+
+var contadorErrores=0; //EL CONTADOR DE ERRORES
+var contadorVocalesNombre = 0;//CONTADOR DE VOCALES
+var contadorVocalesApellido = 0;
+var contadorEspacio = 0
+
+/******************* COMIENZA LA PARTE FRONT END********************/
+
+alert("Bienvenido/a \nA continuación solicitaremos varios datos para crear su cuenta de usuario");
+
+/********************** EL BUCLE WHILE QUE NOS DIRA SI ES VALIDO, O NO *****************************************************/
+
+do{
+	
+/*********************** EL NOMBRE DEL USUARIO ******************************************************************************/
+
+	var nombre = prompt("Introduzca su nombre: ").toLowerCase();//ENTRADA DEL NOMBRE CON UN LOWERCASE PARA UNA CORRECTA VALIDACION
+	
+	if(nombre == null){//SI PULSAMOS CANCELAR CERRAMOS EL SCRIPT
+		
+	  }
+	
+	for (let char of nombre){
+		
+		if(vocales.includes(char)){
+			
+			contadorVocalesNombre++;
+			
+	    }
+		  }
+	 
+	 if(contadorVocalesNombre <= 0 || nombre.length < 3 ||nombre == ""){
+			
+	  	 alert("El nombre debe contener al menos una vocal y 3 caracteres");
+	 }
+	 
+}while(contadorVocalesNombre <= 0 || nombre.length < 3 ||nombre == "");
+
+/***************************************************************************************************/	  
+ 
+do{	
+	
+/************************************ LOS APELLIDOS DEL USUARIO ************************************/	
+    
+	if(contadorErrores === 3 ){
+		alert("Numeros de intentos máximos superado");
+		document.write("<p>SCRIPT TERMINADO (INTENTOS MAXIMOS SUPERADOS)</p");
+		apellidos.setAttribute( "apellidos", null ); 			
+		window.stop();
+     }
+
+	var apellidos = prompt("Introduzca sus apellidos: ").toLowerCase();//ENTRADA DEL APELLIDO CON UN LOWERCASE PARA UNA CORRECTA VALIDACION
+	
+	if(apellidos == null){//SI PULSAMOS CANCELAR CERRAMOS EL SCRIPT
+
+	}
+	
+	for (let char of apellidos){
+			
+	  if(vocales.includes(char)){
+				
+		contadorVocalesApellido++;
+		
+			 }
+			}	 
+	
+	 for (let char of apellidos){
+		
+		if(espacio.includes(char)){
+			
+			contadorEspacio++;
+			
+	         }
+		    }
+	  
+	 if(contadorVocalesApellido <= 0 || apellidos == "" ){
+			
+	  	 alert("Los apellidos deben contener al menos una vocal, 3 carácteres cada uno");
+	  	  contadorErrores++; 
+	  	"Bienvenido al sitio de [EN CONSTRUCCION]"
+	       }
+
+	 if(contadorEspacio < 1 ){
+    	  
+  		alert("Debes introducir DOS apellidos");
+  		contadorErrores++;
+	 }
+	 
+}while(contadorVocalesApellido <= 0 || contadorErrores === 3 || nombre.length < 3 || contadorEspacio < 1 || apellidos == "");
+
+/***************************************************************************************************/
+
+do{	
+	
+/*********************************** FECHA DE ALTA EN LA EMPRESA ****************************************************************/	
+
+	 var fechaAlta = prompt("Introduzca su fecha de ingreso en la empresa en formato dd/mm/yyyy ").toString("MMMM yyyy"); //ENTRADA DE FECHA DE INGRESO		  
+	
+	 var conversorFecha = Date.parse(fechaAlta);//CONVIERTE LA FECHA PARA LUEGO VALIDAR EL FORMATO
+	 
+	 if(fechaAlta == null){//SI PULSAMOS CANCELAR CERRAMOS EL SCRIPT
+		 
+	      }
+	 
+	 if(isNaN(conversorFecha) || fechaAlta == ""){
+		   
+		 alert("Debes introducir una fecha válida ");
+		    
+	      }
+	  
+}while(isNaN(conversorFecha) || fechaAlta == "");
+
+/************* VARIABLES QUE USO PARA GENERAR LOS DATOS QUE SE MUESTRAN POR PANTALLA ***************/		
+
+      var nombreUsuario = (nombre.substring(0, 3).toUpperCase() + apellidos.substring(0, 5).replace(/\s/g, "") + apellidos.charAt(apellidos.length -1));            
+      aleatorio1 = apellidos.replace(/\s/g, "")[Math.floor(Math.random() * apellidos.replace(/\s/g, "").length)];	
+      aleatorio2 = apellidos.replace(/\s/g, "")[Math.floor(Math.random() * apellidos.replace(/\s/g, "").length)];
+      var anioFechaAlta = fechaAlta.substring(6, 10);
+      var aniosEXP = fechaActual - anioFechaAlta ;
+
+/************************************** LO QUE SE MUESTRA EN PANTALLA **************************************/
+     document.write(
+    		 
+     "<fieldset>" +
+     
+       "<legend>" +
+       
+         "<h1>Registro del trabajador</h1>" +
+         
+       "</legend>" +
+       
+       "<p>Nombre: " + nombre.toUpperCase()+" " + apellidos.toUpperCase() + "</p>" +
+       
+       "<p>Fecha de ingreso: " + fechaAlta + "</p>" +
+       
+       "<p>años en la empresa: " + aniosEXP + "</p>" +
+       
+       "<p>Su nuevo nombre de usuario es : " + nombreUsuario.replace(/\s/g, "") + "</p>" +
+       
+       "<p>Su nueva contraseña es: " + aleatorio1 + aleatorio2 + fechaAlta.substring(3, 5) + "</p>"+
+       
+     "</fieldset>"
+     );
+
+/************************************** LA CAJA DE CONFIRMACION ********************************************/
+	
+     var configuracion = confirm("¿Quiere acceder al sitio?");
+
+     if (configuracion == true) {  
+ 	 
+ 	   window.open("Construcciones.html","Bienvenido al sitio de [EN CONSTRUCCION]", "_blank", "width=1024,height=768");  
+ 	 
+     }else {  
+ 	 
+ 	   alert("cerrando el Script");	
+	   document.write("<P>SCRIPT TERMINADO (CAJA DE CONFIRMACIÓN)</P");
+	   window.close 
+     }asd
+
+/************************************** FIN DEL SCRIPT *******************************************************/
+ 
+</script>
+
+</body>
+</html>
